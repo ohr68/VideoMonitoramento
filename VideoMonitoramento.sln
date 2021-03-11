@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{2811F691-8319-40AD-AD79-1D60D5452637}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{01AFD3AB-D555-4601-B296-54ADF5CCD155}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{16CD0F12-5E4F-4173-96A7-13634EB11DD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{AF7551A4-C86C-4A12-945B-558D3E6AD962}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{367E3366-4BEF-4DF0-94AB-5D32A0B42D85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{1A6D7A02-8F97-4A97-AB2B-DCC6022E6688}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seventh.VideoMonitoramento.Domain", "src\Seventh.VideoMonitoramento.Domain\Seventh.VideoMonitoramento.Domain.csproj", "{540A79B2-CF3A-4026-BA6A-C6F9589741E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seventh.VideoMonitoramento.Infra.Data", "src\Seventh.VideoMonitoramento.Infra.Data\Seventh.VideoMonitoramento.Infra.Data.csproj", "{2226B3BF-5D61-499F-87E9-0EA06E86F6CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seventh.VideoMonitoramento.Application", "src\Seventh.VideoMonitoramento.Application\Seventh.VideoMonitoramento.Application.csproj", "{4C973CE2-F5F4-4D30-905B-FCE74D280087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seventh.VideoMonitoramento.CrossCutting.Bootstraper", "src\Seventh.VideoMonitoramento.CrossCutting.Bootstraper\Seventh.VideoMonitoramento.CrossCutting.Bootstraper.csproj", "{A1EF1C9C-DDD0-4FE7-A68B-EE1FA35F3409}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{540A79B2-CF3A-4026-BA6A-C6F9589741E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540A79B2-CF3A-4026-BA6A-C6F9589741E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540A79B2-CF3A-4026-BA6A-C6F9589741E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540A79B2-CF3A-4026-BA6A-C6F9589741E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2226B3BF-5D61-499F-87E9-0EA06E86F6CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2226B3BF-5D61-499F-87E9-0EA06E86F6CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2226B3BF-5D61-499F-87E9-0EA06E86F6CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2226B3BF-5D61-499F-87E9-0EA06E86F6CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C973CE2-F5F4-4D30-905B-FCE74D280087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C973CE2-F5F4-4D30-905B-FCE74D280087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C973CE2-F5F4-4D30-905B-FCE74D280087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C973CE2-F5F4-4D30-905B-FCE74D280087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1EF1C9C-DDD0-4FE7-A68B-EE1FA35F3409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EF1C9C-DDD0-4FE7-A68B-EE1FA35F3409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EF1C9C-DDD0-4FE7-A68B-EE1FA35F3409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EF1C9C-DDD0-4FE7-A68B-EE1FA35F3409}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{367E3366-4BEF-4DF0-94AB-5D32A0B42D85} = {AF7551A4-C86C-4A12-945B-558D3E6AD962}
+		{1A6D7A02-8F97-4A97-AB2B-DCC6022E6688} = {AF7551A4-C86C-4A12-945B-558D3E6AD962}
+		{540A79B2-CF3A-4026-BA6A-C6F9589741E5} = {16CD0F12-5E4F-4173-96A7-13634EB11DD7}
+		{2226B3BF-5D61-499F-87E9-0EA06E86F6CD} = {367E3366-4BEF-4DF0-94AB-5D32A0B42D85}
+		{4C973CE2-F5F4-4D30-905B-FCE74D280087} = {01AFD3AB-D555-4601-B296-54ADF5CCD155}
+		{A1EF1C9C-DDD0-4FE7-A68B-EE1FA35F3409} = {1A6D7A02-8F97-4A97-AB2B-DCC6022E6688}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B61E1130-5C2B-48E8-AC83-B45C3C51B43C}
+	EndGlobalSection
+EndGlobal
