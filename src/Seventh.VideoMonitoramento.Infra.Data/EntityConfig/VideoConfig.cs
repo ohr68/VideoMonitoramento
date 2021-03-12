@@ -19,6 +19,8 @@ namespace Seventh.VideoMonitoramento.Infra.Data.EntityConfig
             Property(v => v.FileData)
                 .HasColumnType("VARBINARY(MAX)")
                 .IsRequired();
+
+            ToTable("Video");
         }
     }
 }

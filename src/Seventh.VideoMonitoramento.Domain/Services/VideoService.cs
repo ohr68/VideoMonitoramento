@@ -31,6 +31,11 @@ namespace Seventh.VideoMonitoramento.Domain.Services
             return _videoRepository.GetAll();
         }
 
+        public IEnumerable<Video> GetAllServerVideos(Guid serverId)
+        {
+            return _videoRepository.GetAllServerVideos(serverId);
+        }
+
         public Video GetById(Guid id)
         {
             return _videoRepository.GetById(id);

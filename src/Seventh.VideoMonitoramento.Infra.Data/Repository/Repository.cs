@@ -20,7 +20,7 @@ namespace Seventh.VideoMonitoramento.Infra.Data.Repository
             DbSet = Db.Set<TEntity>();
         }
 
-        public TEntity Create(TEntity obj)
+        public virtual TEntity Create(TEntity obj)
         {
             return DbSet.Add(obj);
         }
@@ -31,17 +31,17 @@ namespace Seventh.VideoMonitoramento.Infra.Data.Repository
             GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return DbSet.ToList();
         }
 
-        public TEntity GetById(Guid id)
+        public virtual TEntity GetById(Guid id)
         {
             return DbSet.Find(id);
         }
 
-        public void Remove(Guid id)
+        public virtual void Remove(Guid id)
         {
             DbSet.Remove(DbSet.Find(id));
         }
@@ -56,7 +56,7 @@ namespace Seventh.VideoMonitoramento.Infra.Data.Repository
             return DbSet.Where(predicate);
         }
 
-        public TEntity Update(TEntity obj)
+        public virtual TEntity Update(TEntity obj)
         {
             var entry = Db.Entry(obj);
             DbSet.Attach(obj);

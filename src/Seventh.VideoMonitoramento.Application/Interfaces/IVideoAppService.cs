@@ -9,6 +9,7 @@ namespace Seventh.VideoMonitoramento.Application.Interfaces
         VideoViewModel Create(VideoViewModel video);
         VideoViewModel GetById(Guid id);
         IEnumerable<VideoViewModel> GetAll();
+        IEnumerable<VideoViewModel> GetAllServerVideos(Guid serverId);
         VideoViewModel Update(VideoViewModel video);
         void Remove(Guid id);
     }

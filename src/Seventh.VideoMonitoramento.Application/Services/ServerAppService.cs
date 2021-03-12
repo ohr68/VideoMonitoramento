@@ -6,6 +6,9 @@ using Seventh.VideoMonitoramento.Domain.Interfaces.Services;
 using Seventh.VideoMonitoramento.Infra.Data.UnityOfWork;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
 
 namespace Seventh.VideoMonitoramento.Application.Services
 {
@@ -17,6 +20,28 @@ namespace Seventh.VideoMonitoramento.Application.Services
             :base(uow)
         {
             _serverService = serverService;
+        }
+
+        public PingReply CheckServerAvailability(Guid id)
+        {
+            var serverInfo = _serverService.GetById(id);
+
+            if (serverInfo == null)
+                throw new Exception("The server was not found in databse!");
+
+            byte[] serverAddress = serverInfo.IP.Split('.').Select(byte.Parse).ToArray();
+
+            try
+            {
+                var ping = new Ping();
+                var reply = ping.Send(new IPAddress(serverAddress), 60 * 1000);
+
+                return reply;
+
+            }catch(Exception e)
+            {
+                throw;
+            }
         }
 
         public ServerViewModel Create(ServerViewModel server)

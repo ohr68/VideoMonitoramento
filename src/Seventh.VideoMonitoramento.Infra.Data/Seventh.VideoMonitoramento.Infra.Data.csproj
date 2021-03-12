@@ -34,11 +34,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrations, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Migrations.1.0.1.0\lib\net40-Client\Migrations.dll</HintPath>
+    </Reference>
+    <Reference Include="Slapper, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Slapper.AutoMapper.2.0.1\lib\net46\Slapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -54,6 +66,9 @@
     <Compile Include="Context\VideoMonitoramentoContext.cs" />
     <Compile Include="EntityConfig\ServerConfig.cs" />
     <Compile Include="EntityConfig\VideoConfig.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Procedures\ServerProcedures.cs" />
+    <Compile Include="Procedures\VideoProcedures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\VideoRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
@@ -61,12 +76,15 @@
     <Compile Include="UnityOfWork\IUnitOfWork.cs" />
     <Compile Include="UnityOfWork\UnitOfWork.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Seventh.VideoMonitoramento.CrossCutting.ExtensionMethods\Seventh.VideoMonitoramento.CrossCutting.ExtensionMethods.csproj">
+      <Project>{c673b73d-be0a-4947-b2ee-ed523e0abdc0}</Project>
+      <Name>Seventh.VideoMonitoramento.CrossCutting.ExtensionMethods</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Seventh.VideoMonitoramento.Domain\Seventh.VideoMonitoramento.Domain.csproj">
       <Project>{540a79b2-cf3a-4026-ba6a-c6f9589741e5}</Project>
       <Name>Seventh.VideoMonitoramento.Domain</Name>

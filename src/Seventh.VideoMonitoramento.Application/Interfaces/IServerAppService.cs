@@ -1,6 +1,7 @@
 ﻿using Seventh.VideoMonitoramento.Application.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 
 namespace Seventh.VideoMonitoramento.Application.Interfaces
 {
@@ -11,5 +12,6 @@ namespace Seventh.VideoMonitoramento.Application.Interfaces
         IEnumerable<ServerViewModel> GetAll();
         ServerViewModel Update(ServerViewModel server);
         void Remove(Guid id);
+        PingReply CheckServerAvailability(Guid id);
     }
 }

@@ -23,6 +23,8 @@ namespace Seventh.VideoMonitoramento.Infra.Data.EntityConfig
             HasMany(s => s.Videos)
                 .WithRequired(v => v.Server)
                 .HasForeignKey(v => v.ServerId);
+
+            ToTable("Server");
         }
     }
 }

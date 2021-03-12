@@ -38,6 +38,11 @@ namespace Seventh.VideoMonitoramento.Application.Services
             return Mapper.Map<IEnumerable<VideoViewModel>>(_videoService.GetAll());
         }
 
+        public IEnumerable<VideoViewModel> GetAllServerVideos(Guid serverId)
+        {
+            return Mapper.Map<IEnumerable<VideoViewModel>>(_videoService.GetAllServerVideos(serverId));
+        }
+
         public VideoViewModel GetById(Guid id)
         {
             return Mapper.Map<VideoViewModel>(_videoService.GetById(id));

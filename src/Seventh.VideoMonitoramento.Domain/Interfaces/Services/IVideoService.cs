@@ -9,6 +9,7 @@ namespace Seventh.VideoMonitoramento.Domain.Interfaces.Services
         Video Create(Video video);
         Video GetById(Guid id);
         IEnumerable<Video> GetAll();
+        IEnumerable<Video> GetAllServerVideos(Guid serverId);
         Video Update(Video video);
         void Remove(Guid id);
         int SaveChanges();
