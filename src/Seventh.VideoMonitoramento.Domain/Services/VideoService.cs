@@ -41,6 +41,17 @@ namespace Seventh.VideoMonitoramento.Domain.Services
             return _videoRepository.GetById(id);
         }
 
+        public void Recycle(int days)
+        {
+            DateTime timePoint = DateTime.Now.AddDays(-days);
+            var videos = _videoRepository.Seek(v => v.RegistrationDate < timePoint);
+
+            foreach (var video in videos)
+            {
+                _videoRepository.Remove(video.Id);
+            }
+        }
+
         public void Remove(Guid id)
         {
             _videoRepository.Remove(id);

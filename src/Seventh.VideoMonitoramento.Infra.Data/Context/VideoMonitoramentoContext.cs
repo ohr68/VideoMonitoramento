@@ -1,14 +1,16 @@
 ﻿using Seventh.VideoMonitoramento.Domain.Entities;
 using Seventh.VideoMonitoramento.Infra.Data.EntityConfig;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 namespace Seventh.VideoMonitoramento.Infra.Data.Context
 {
     public class VideoMonitoramentoContext : DbContext
     {
         public VideoMonitoramentoContext()
-            :base("VideoMonitoramento")
+            : base("VideoMonitoramento")
         {
 
         }
@@ -39,6 +41,21 @@ namespace Seventh.VideoMonitoramento.Infra.Data.Context
             modelBuilder.Configurations.Add(new VideoConfig());
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries().
+                Where(entry => entry.Entity.GetType().GetProperty("RegistrationDate") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("RegistrationDate").CurrentValue = DateTime.Now;
+                }
+
+            }
+
+            return base.SaveChanges();
         }
     }
 }

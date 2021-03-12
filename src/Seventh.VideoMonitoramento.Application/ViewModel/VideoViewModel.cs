@@ -7,7 +7,7 @@ namespace Seventh.VideoMonitoramento.Application.ViewModel
     public class VideoViewModel
     {
         [NotEmpty]
-        [Key]       
+        [Key]
         public Guid Id { get; set; }
         [Required]
         public string Description { get; set; }
@@ -15,6 +15,8 @@ namespace Seventh.VideoMonitoramento.Application.ViewModel
         public Byte[] FileData { get; set; }
         [Required]
         public int SizeInBytes { get; set; }
+        public DateTime? RegistrationDate { get; set; }
+
         [Required]
         public Guid ServerId { get; set; }
         public virtual ServerViewModel Server { get; set; }

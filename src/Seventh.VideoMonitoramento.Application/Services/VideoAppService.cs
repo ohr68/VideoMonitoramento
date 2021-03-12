@@ -48,9 +48,16 @@ namespace Seventh.VideoMonitoramento.Application.Services
             return Mapper.Map<VideoViewModel>(_videoService.GetById(id));
         }
 
+        public void Recycle(int days)
+        {
+            _videoService.Recycle(days);
+            Commit();
+        }
+
         public void Remove(Guid id)
         {
             _videoService.Remove(id);
+            Commit();
         }
 
         public VideoViewModel Update(VideoViewModel video)

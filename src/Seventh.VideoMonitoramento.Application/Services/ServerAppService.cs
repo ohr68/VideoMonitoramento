@@ -71,6 +71,7 @@ namespace Seventh.VideoMonitoramento.Application.Services
         public void Remove(Guid id)
         {
             _serverService.Remove(id);
+            Commit();
         }
 
 

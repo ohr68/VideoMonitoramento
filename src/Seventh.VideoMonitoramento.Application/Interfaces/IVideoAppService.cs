@@ -12,5 +12,6 @@ namespace Seventh.VideoMonitoramento.Application.Interfaces
         IEnumerable<VideoViewModel> GetAllServerVideos(Guid serverId);
         VideoViewModel Update(VideoViewModel video);
         void Remove(Guid id);
+        void Recycle(int days);
     }
 }

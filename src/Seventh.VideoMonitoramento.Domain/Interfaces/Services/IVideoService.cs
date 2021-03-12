@@ -12,6 +12,7 @@ namespace Seventh.VideoMonitoramento.Domain.Interfaces.Services
         IEnumerable<Video> GetAllServerVideos(Guid serverId);
         Video Update(Video video);
         void Remove(Guid id);
+        void Recycle(int days);
         int SaveChanges();
     }
 }

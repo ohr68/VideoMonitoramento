@@ -7,6 +7,7 @@ using Seventh.VideoMonitoramento.Infra.Data.Context;
 using Seventh.VideoMonitoramento.Infra.Data.Repository;
 using Seventh.VideoMonitoramento.Infra.Data.UnityOfWork;
 using SimpleInjector;
+using SimpleInjector.Lifestyles;
 
 namespace Seventh.VideoMonitoramento.CrossCutting.Bootstraper
 {
