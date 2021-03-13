@@ -23,6 +23,11 @@ namespace Seventh.VideoMonitoramento.Services.API.App_Start
                     //PrepareSchemaIfNecessary = false
                 });
 
+            var options = new BackgroundJobServerOptions()
+            {
+                Queues = new[] { "recycler" }
+            };
+
             yield return new BackgroundJobServer();
         }
     }

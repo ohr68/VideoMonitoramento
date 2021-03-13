@@ -1,4 +1,5 @@
 ﻿using Hangfire;
+using Hangfire.Storage;
 using Seventh.VideoMonitoramento.Application.Interfaces;
 using System;
 using System.Net;
@@ -19,9 +20,12 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
         {
             HttpStatusCode httpStatusCode;
 
+            IMonitoringApi monitoring = JobStorage.Current.GetMonitoringApi();
+            long backgroundJobCount = monitoring.EnqueuedCount("recycler");
+            var status = backgroundJobCount == 0 ? "not running" : "running";
             httpStatusCode = HttpStatusCode.OK;
 
-            HttpResponseMessage httpResponseMessage = Request.CreateResponse(httpStatusCode, new { status = "not running" });
+            HttpResponseMessage httpResponseMessage = Request.CreateResponse(httpStatusCode, new { status = status });
             TaskCompletionSource<HttpResponseMessage> tsc = new TaskCompletionSource<HttpResponseMessage>();
             tsc.SetResult(httpResponseMessage);
             return tsc.Task;
@@ -38,7 +42,7 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
 
             httpStatusCode = HttpStatusCode.Accepted;
 
-            HttpResponseMessage httpResponseMessage = Request.CreateResponse(httpStatusCode, queueId);
+            HttpResponseMessage httpResponseMessage = Request.CreateResponse(httpStatusCode);
             TaskCompletionSource<HttpResponseMessage> tsc = new TaskCompletionSource<HttpResponseMessage>();
             tsc.SetResult(httpResponseMessage);
             return tsc.Task;

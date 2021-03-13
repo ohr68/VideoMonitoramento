@@ -29,8 +29,8 @@ GO
 CREATE PROCEDURE usp_Video_GetById
 @sid UNIQUEIDENTIFIER
 AS 
-SELECT V.Id, V.Description, V.FileData, V.SizeInBytes
+SELECT V.Id, V.Description, V.FileData, V.SizeInBytes, V.ServerId
 FROM Video V
-WHERE V.ServerId = @sid
+WHERE V.Id = @sid
 
 GO
