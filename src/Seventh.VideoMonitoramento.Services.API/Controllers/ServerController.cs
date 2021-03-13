@@ -114,7 +114,7 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
             try
             {
                 createdServer = _serverAppService.Create(server);
-                httpStatusCode = HttpStatusCode.OK;
+                httpStatusCode = HttpStatusCode.Created;
             }
             catch (Exception e)
             {
@@ -128,14 +128,13 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
             return tsc.Task;
         }
 
-
         [HttpPut]
         [Route("{serverId:guid}")]
         [ValidateModel]
         public Task<HttpResponseMessage> Put([FromUri] Guid serverId, [FromBody] ServerViewModel server)
         {
             HttpStatusCode httpStatusCode;
-            object createdServer = new object();
+            object updatedServer = new object();
 
             if (serverId != server.Id)
                 httpStatusCode = HttpStatusCode.BadRequest;
@@ -143,7 +142,7 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
             {
                 try
                 {
-                    createdServer = _serverAppService.Update(server);
+                    updatedServer = _serverAppService.Update(server);
                     httpStatusCode = HttpStatusCode.NoContent;
                 }
                 catch (Exception e)
@@ -152,7 +151,7 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
                 }
             }
 
-            HttpResponseMessage httpResponseMessage = Request.CreateResponse(httpStatusCode, createdServer);
+            HttpResponseMessage httpResponseMessage = Request.CreateResponse(httpStatusCode);
             TaskCompletionSource<HttpResponseMessage> tsc = new TaskCompletionSource<HttpResponseMessage>();
             tsc.SetResult(httpResponseMessage);
             return tsc.Task;

@@ -3,6 +3,7 @@ using Seventh.VideoMonitoramento.Application.ViewModel;
 using Seventh.VideoMonitoramento.Services.API.Filters;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -83,7 +84,7 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
         public Task<HttpResponseMessage> DownloadVideoContent(Guid videoId)
         {
             HttpStatusCode httpStatusCode;
-            HttpContent content = new ByteArrayContent(new byte[] { });
+            HttpContent content = null;
 
             try
             {
@@ -93,6 +94,7 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
                     httpStatusCode = HttpStatusCode.NotFound;
                 else
                 {
+                    //MemoryStream memoryStream = new MemoryStream(video.FileData);
                     content = new ByteArrayContent(video.FileData);
                     httpStatusCode = HttpStatusCode.OK;
                 }
@@ -102,7 +104,7 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
                 httpStatusCode = HttpStatusCode.InternalServerError;
             }
 
-            HttpResponseMessage httpResponseMessage = Request.CreateResponse(httpStatusCode);
+            HttpResponseMessage httpResponseMessage = Request.CreateResponse(httpStatusCode, content);
             httpResponseMessage.Content = content;
             httpResponseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             TaskCompletionSource<HttpResponseMessage> tsc = new TaskCompletionSource<HttpResponseMessage>();

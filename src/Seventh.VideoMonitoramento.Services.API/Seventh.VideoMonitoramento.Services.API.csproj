@@ -327,7 +327,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RecyclerController.cs" />
     <Compile Include="Controllers\ServerController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">

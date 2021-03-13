@@ -12,8 +12,6 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
     [RoutePrefix("api/recycler")]
     public class RecyclerController : ApiController
     {
-        private readonly IVideoAppService videoAppService;
-
         [HttpGet]
         [Route("status")]
         public Task<HttpResponseMessage> Get()
@@ -47,7 +45,5 @@ namespace Seventh.VideoMonitoramento.Services.API.Controllers
             tsc.SetResult(httpResponseMessage);
             return tsc.Task;
         }
-
-
     }
 }
